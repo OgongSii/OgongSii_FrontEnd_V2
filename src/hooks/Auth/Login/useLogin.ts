@@ -1,7 +1,7 @@
 import { useCallback, useState } from "react";
-import { usePostLogin } from "../../queries/Login/login.query";
+import { usePostLogin } from "../../../queries/Login/login.query";
 import { B1ndToast } from "@b1nd/b1nd-toastify";
-import { authType } from "../../types/Auth/login.type";
+import { authType } from "../../../types/Auth/login.type";
 
 export function useLogin() {
   const [id, SetId] = useState<string>("");
@@ -20,7 +20,7 @@ export function useLogin() {
     (e: React.MouseEvent<HTMLButtonElement>) => {
       e.preventDefault();
       if (id && pw) {
-        const data : authType = {
+        const data: authType = {
           name: id,
           password: pw,
         };
@@ -36,8 +36,7 @@ export function useLogin() {
             SetPw("");
           },
         });
-      }
-      else B1ndToast.showInfo("제대로 입력해주세요!");
+      } else B1ndToast.showInfo("제대로 입력해주세요!");
     },
     [id, pw]
   );

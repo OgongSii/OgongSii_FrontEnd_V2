@@ -1,6 +1,6 @@
 import { useCallback, useState } from "react";
-import { usePostSignUp } from "../../queries/SignUp/signup.query";
-import { authType } from "../../types/Auth/login.type";
+import { usePostSignUp } from "../../../queries/SignUp/signup.query";
+import { authType } from "../../../types/Auth/login.type";
 import { B1ndToast } from "@b1nd/b1nd-toastify";
 
 export function useSignUp() {
@@ -22,28 +22,27 @@ export function useSignUp() {
   const onSignUpClick = useCallback(
     (e: React.MouseEvent<HTMLButtonElement>) => {
       e.preventDefault();
-      if ((id && pw1 && pw2) && (pw1 === pw2)) {
-        const data : authType = {
-            name : id,
-            password: pw1,
+      if (id && pw1 && pw2 && pw1 === pw2) {
+        const data: authType = {
+          name: id,
+          password: pw1,
         };
-        signUp.mutate(data,{
-            onSuccess: (res) => {
-                B1ndToast.showSuccess("회원가입 성공!");
-            },
-            onError: () => {
-                B1ndToast.showError("회원가입 실패!");
-            },
-            onSettled: () => {
-                SetId("");
-                SetPw1("");
-                SetPw2("");
-            }
+        signUp.mutate(data, {
+          onSuccess: (res) => {
+            B1ndToast.showSuccess("회원가입 성공!");
+          },
+          onError: () => {
+            B1ndToast.showError("회원가입 실패!");
+          },
+          onSettled: () => {
+            SetId("");
+            SetPw1("");
+            SetPw2("");
+          },
         });
-      }
-      else B1ndToast.showInfo("제대로 입력해주세요!");
+      } else B1ndToast.showInfo("제대로 입력해주세요!");
     },
-    [id,pw1,pw2]
+    [id, pw1, pw2]
   );
 
   return { onSignUpChange, id, pw1, pw2, onSignUpClick };

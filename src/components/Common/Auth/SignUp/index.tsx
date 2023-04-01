@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import * as S from "./style";
-import { useSignUp } from "../../../hooks/SignUp/useSignUp";
+import { useSignUp } from "../../../../hooks/Auth/SignUp/useSignUp";
 
 export default function SignUp() {
   const navigate = useNavigate();
@@ -50,11 +50,10 @@ export default function SignUp() {
           <div>
             <span>계정이 있으신가요? </span>
             <span
-              style={{ cursor: "pointer" }}
+              style={{ cursor: "pointer", color: "#467cf5" }}
               onClick={() => navigate("/login")}
             >
-              {" "}
-              | 로그인 |
+              로그인
             </span>
           </div>
         </S.SignupInputContainer>

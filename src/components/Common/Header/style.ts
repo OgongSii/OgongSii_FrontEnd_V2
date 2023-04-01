@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const HeadContainer = styled.div`
+export const HeadContainer = styled.header`
   width: 100%;
   height: 80px;
 
@@ -8,7 +8,7 @@ export const HeadContainer = styled.div`
   flex-direction: row;
 
   justify-content: space-around;
-  line-height: 85px;
+  align-items: center;
   box-shadow: 0px 3px 3px -2px #4172fa;
 
   background-color: #ffffff;
@@ -22,6 +22,11 @@ export const HeadContainer = styled.div`
 export const Logo = styled.div`
   cursor: pointer;
   background-color: #ffffff;
+
+  -webkit-user-select:none;
+  -moz-user-select:none;
+  -ms-user-select:none;
+  user-select:none;
 `;
 
 export const LogoPoint = styled.span`

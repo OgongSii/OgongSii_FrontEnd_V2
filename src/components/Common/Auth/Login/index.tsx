@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import * as S from "./style";
-import { useLogin } from "../../../hooks/Login/useLogin";
+import { useLogin } from "../../../../hooks/Auth/Login/useLogin";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -20,7 +20,7 @@ export default function Login() {
             value={id}
             placeholder="아이디"
             name="id"
-            autoComplete="new-password"
+            autoComplete="off"
             onChange={onLoginChange}
           />
 
@@ -29,7 +29,7 @@ export default function Login() {
             value={pw}
             placeholder="비밀번호"
             name="pw"
-            autoComplete="new-password"
+            autoComplete="off"
             onChange={onLoginChange}
           />
 
@@ -40,11 +40,10 @@ export default function Login() {
           <div>
             <span>계정이 없으신가요? </span>
             <span
-              style={{ cursor: "pointer" }}
+              style={{ cursor: "pointer", color: "#467cf5" }}
               onClick={() => navigate("/signup")}
             >
-              {" "}
-              | 회원가입 |
+              회원가입
             </span>
           </div>
         </S.LoginInputContainer>

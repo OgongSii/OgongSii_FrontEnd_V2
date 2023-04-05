@@ -1,17 +1,22 @@
 import { ReactNode } from "react";
 import GlobalStyle from "../../../styles/GlobalStyles";
 import Header from "../Header";
+import { useRecoilValue } from "recoil";
+import Modal from "../Modal";
+import { ISMODAL } from "../../../store/Modal/modalAtom";
 
 interface Props {
-    children: ReactNode;
+  children: ReactNode;
 }
 
-export default function PageTemplate({children}:Props){
-    return(
-        <>
-            <GlobalStyle />
-            <Header />
-            {children}
-        </>
-    );
+export default function PageTemplate({ children }: Props) {
+  const isModal = useRecoilValue<boolean>(ISMODAL);
+  return (
+    <>
+      <GlobalStyle />
+      <Header />
+      {children}
+      {isModal && <Modal />}
+    </>
+  );
 }

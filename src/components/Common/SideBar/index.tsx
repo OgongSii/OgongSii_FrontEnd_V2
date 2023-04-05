@@ -1,28 +1,34 @@
-import { PageLink } from "../../../constants/Page/page.constants";
+import { useSetRecoilState } from "recoil";
+import { PAGE_ITEM } from "../../../constants/Page/page.constants";
 import { useGoPage } from "../../../hooks/SideBar/useGoPage";
 import * as S from "./style";
+import { ISMODAL } from "../../../store/Modal/modalAtom";
+import Token from "../../../lib/Token/Token";
 
 export default function SiderBar() {
   const { onPageToggle } = useGoPage();
+  const isModal = useSetRecoilState<boolean>(ISMODAL);
 
   return (
     <S.SidebarWrapper>
       <S.ProfileContainer>
-        {false ? <S.ProfileImg /> : <S.NoneProfile />}
+        <S.Profile />
         <S.UserInfo>
-          <S.MyId>doldory55</S.MyId>
-          <nav style={{ backgroundColor: "#FFFFFF" }}>
-            {PageLink.map((data,idx) => (
+          <S.MyId>
+            {Token.getToken("userName")
+              ? Token.getToken("userName")
+              : "유저정보가 없습니다."}
+          </S.MyId>
+          <nav>
+            {PAGE_ITEM.map((data) => (
               <S.GoPage
                 key={data.name}
                 onClick={() => {
-                  onPageToggle(data.name, data.link);
+                  data.link !== undefined
+                    ? onPageToggle(data.name, data.link)
+                    : isModal(true);
                 }}
-                style={
-                  localStorage.getItem('page') === data.name
-                    ? { border: "3px solid black", backgroundColor: "#EAEDFA", color: "black" }
-                    : {}
-                }
+                isLogIn={Token.getToken("page") === data.name}
               >
                 {data.name}
               </S.GoPage>

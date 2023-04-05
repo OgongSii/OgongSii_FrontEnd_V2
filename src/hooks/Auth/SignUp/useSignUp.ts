@@ -1,14 +1,16 @@
 import { useCallback, useState } from "react";
-import { usePostSignUp } from "../../../queries/SignUp/signup.query";
+import { usePostSignUpMutation } from "../../../queries/Auth/SignUp/signup.query";
 import { authType } from "../../../types/Auth/login.type";
 import { B1ndToast } from "@b1nd/b1nd-toastify";
+import { QueryClient } from "react-query";
 
 export function useSignUp() {
   const [id, SetId] = useState<string>("");
   const [pw1, SetPw1] = useState<string>("");
   const [pw2, SetPw2] = useState<string>("");
 
-  const signUp = usePostSignUp();
+  const signUp = usePostSignUpMutation();
+  const queryClient = new QueryClient();
 
   const onSignUpChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -20,16 +22,17 @@ export function useSignUp() {
   );
 
   const onSignUpClick = useCallback(
-    (e: React.MouseEvent<HTMLButtonElement>) => {
+    async(e: React.MouseEvent<HTMLButtonElement>) => {
       e.preventDefault();
       if (id && pw1 && pw2 && pw1 === pw2) {
         const data: authType = {
           name: id,
           password: pw1,
         };
-        signUp.mutate(data, {
-          onSuccess: (res) => {
+        signUp.mutateAsync(data, {
+          onSuccess: () => {
             B1ndToast.showSuccess("회원가입 성공!");
+            queryClient.invalidateQueries("auth/signup");
           },
           onError: () => {
             B1ndToast.showError("회원가입 실패!");

@@ -7,6 +7,6 @@ export default function NotFound() {
   useEffect(() => {
     B1ndToast.showInfo("Page Not Found!");
     navigage("/");
-  }, [navigage]);
+  }, []);
   return <></>;
 }

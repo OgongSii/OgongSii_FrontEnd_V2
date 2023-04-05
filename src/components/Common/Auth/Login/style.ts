@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const LoginContaienr = styled.div`
   width: 100%;
@@ -30,7 +30,7 @@ export const LoginInputContainer = styled.div`
   margin: 30px auto;
 `;
 
-export const LoginIdInput = styled.input`
+export const Input = styled.input`
   width: 450px;
   height: 50px;
   font-size: 15px;
@@ -43,24 +43,9 @@ export const LoginIdInput = styled.input`
   border-bottom: 1px solid gray;
 `;
 
-export const LoginPwInput = styled.input`
-  width: 450px;
-  height: 50px;
-  font-size: 15px;
-
-  outline: none;
-  border-top: none;
-  border-left: none;
-  border-right: none;
-
-  border-bottom: 1px solid gray;
-`;
-
-export const LoginBtn = styled.button`
+export const Btn = styled.button<{ isModal: boolean; isPost: boolean }>`
   cursor: pointer;
   border-radius: 0.5rem;
-
-  width: 450px;
   height: 60px;
 
   outline: none;
@@ -69,8 +54,26 @@ export const LoginBtn = styled.button`
   color: white;
 
   font-size: 15px;
-  margin-top: 30px;
   line-height: 60px;
+
+  ${({ isModal }) =>
+    isModal
+      ? css`
+          margin-top: 95px;
+        `
+      : css`
+          margin-top: 30px;
+        `}
+
+  ${({ isPost }) =>
+    isPost
+      ? css`
+          width: 400px;
+          margin-top: 90px;
+        `
+      : css`
+          width: 450px;
+        `}
 
   &:hover {
     background-color: #5e75eb;

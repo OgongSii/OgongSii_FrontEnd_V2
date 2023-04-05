@@ -15,26 +15,30 @@ export default function Login() {
         </S.LoginTitle>
 
         <S.LoginInputContainer>
-          <S.LoginIdInput
+          <S.Input
             type="text"
             value={id}
             placeholder="아이디"
             name="id"
             autoComplete="off"
             onChange={onLoginChange}
+            maxLength={20}
           />
 
-          <S.LoginPwInput
+          <S.Input
             type="password"
             value={pw}
             placeholder="비밀번호"
             name="pw"
             autoComplete="off"
             onChange={onLoginChange}
+            maxLength={20}
           />
 
           <div style={{ marginTop: "30px" }}>
-            <S.LoginBtn onClick={onLoginClick}>로그인</S.LoginBtn>
+            <S.Btn onClick={onLoginClick} isModal={false} isPost={false}>
+              로그인
+            </S.Btn>
           </div>
 
           <div>

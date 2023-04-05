@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import * as S from "./style";
 import { useSignUp } from "../../../../hooks/Auth/SignUp/useSignUp";
+import { Btn, Input } from "../Login/style";
 
 export default function SignUp() {
   const navigate = useNavigate();
@@ -16,35 +17,40 @@ export default function SignUp() {
         </S.SignupTitle>
 
         <S.SignupInputContainer>
-          <S.SignupIdInput
+          <Input
             type="text"
             value={id}
             placeholder="아이디"
             name="id"
             autoComplete="new-password"
             onChange={onSignUpChange}
+            maxLength={20}
           />
 
-          <S.SignupPwInput1
+          <Input
             type="password"
             value={pw1}
             placeholder="비밀번호"
             name="pw1"
             autoComplete="new-password"
             onChange={onSignUpChange}
+            maxLength={20}
           />
 
-          <S.SignupPwInput2
+          <Input
             type="password"
             value={pw2}
             placeholder="비밀번호 확인"
             name="pw2"
             autoComplete="new-password"
             onChange={onSignUpChange}
+            maxLength={20}
           />
 
           <div style={{ marginTop: "30px" }}>
-            <S.SingupBtn onClick={onSignUpClick}>회원가입</S.SingupBtn>
+            <Btn onClick={onSignUpClick} isModal={false} isPost={false}>
+              회원가입
+            </Btn>
           </div>
 
           <div>

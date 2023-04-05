@@ -14,7 +14,7 @@ export const HeadContainer = styled.header`
   background-color: #ffffff;
   color: black;
 
-  position: fixed;
+  position: absolute;
   left: 0;
   top: 0;
 `;

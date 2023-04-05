@@ -1,13 +1,12 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { BsPerson } from "react-icons/bs";
 
-export const SidebarWrapper = styled.div`
+export const SidebarWrapper = styled.aside`
   width: 240px;
   height: calc(100vh - 80px);
-  background-color: #ffffff;
   box-shadow: -3px 1px 3px -2px #4172fa;
 
-  position: fixed;
+  position: absolute;
   right: 0;
   bottom: 0;
   display: flex;
@@ -17,8 +16,8 @@ export const SidebarWrapper = styled.div`
 export const ProfileContainer = styled.div`
   width: 100%;
   height: 300px;
-  background-color: #ffffff;
   text-align: center;
+  padding-top: 20px;
 `;
 
 export const ProfileImg = styled.img`
@@ -33,7 +32,7 @@ export const ProfileImg = styled.img`
   margin-top: 20px;
 `;
 
-export const NoneProfile = styled(BsPerson)`
+export const Profile = styled(BsPerson)`
   width: 150px;
   height: 150px;
 
@@ -41,7 +40,6 @@ export const NoneProfile = styled(BsPerson)`
   margin-top: 20px;
   padding: 10px;
 
-  background-color: #ffffff;
   color: black;
   border: 7px solid #4172fa;
 `;
@@ -53,7 +51,6 @@ export const UserInfo = styled.div`
   display: flex;
   flex-direction: column;
 
-  background-color: #ffffff;
   align-items: center;
   justify-content: space-between;
 `;
@@ -66,22 +63,30 @@ export const MyId = styled.div`
   padding-top: 17px;
 
   border-bottom: 2px solid black;
-  background-color: #ffffff;
 `;
 
-export const GoPage = styled.div`
+export const GoPage = styled.div<{ isLogIn: boolean }>`
   width: 200px;
   height: 50px;
   color: #ffffff;
-  
+
   line-height: 50px;
   margin-bottom: 20px;
 
   background-color: #4172fa;
   border-radius: 1rem;
   cursor: pointer;
-
+  box-shadow: 0 0 10px #9199f5;
   &:hover {
     background-color: #467cf5;
   }
+
+  ${({ isLogIn }) =>
+    isLogIn
+      ? css`
+          border: 3px solid black;
+          background-color: #eaedfa;
+          color: black;
+        `
+      : ""}
 `;

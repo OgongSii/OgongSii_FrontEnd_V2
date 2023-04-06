@@ -35,7 +35,7 @@ export default function Post() {
           style={{ display: "none" }}
         />
       </S.ImgUploadContainer>
-      <Btn isModal={true} isPost={true}>등록하기</Btn>
+      <Btn isModal={true} isPost={true}>작성하기</Btn>
     </S.PostContainer>
   );
 }

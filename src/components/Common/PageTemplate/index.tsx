@@ -11,6 +11,7 @@ interface Props {
 
 export default function PageTemplate({ children }: Props) {
   const isModal = useRecoilValue<boolean>(ISMODAL);
+
   return (
     <>
       <GlobalStyle />

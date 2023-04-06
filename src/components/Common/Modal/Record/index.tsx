@@ -4,7 +4,7 @@ import { Introduce } from "../Post/style";
 import * as S from "./style";
 
 export default function Record() {
-  const { onNumberChange, numberHourText, numberMinuteText } = useRecord();
+  const { onNumberChange, numberHourText, numberMinuteText, onRecordSubmit } = useRecord();
 
   return (
     <S.RecordContainer>
@@ -28,7 +28,7 @@ export default function Record() {
         onChange={onNumberChange}
       />
 
-      <Btn isModal={true} isPost={false}>
+      <Btn isModal={true} isPost={false} onClick={onRecordSubmit}>
         등록하기
       </Btn>
     </S.RecordContainer>

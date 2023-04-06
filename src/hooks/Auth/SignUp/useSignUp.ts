@@ -9,7 +9,7 @@ export function useSignUp() {
   const [pw1, SetPw1] = useState<string>("");
   const [pw2, SetPw2] = useState<string>("");
 
-  const signUp = usePostSignUpMutation();
+  const signupMutate = usePostSignUpMutation();
   const queryClient = new QueryClient();
 
   const onSignUpChange = useCallback(
@@ -25,11 +25,11 @@ export function useSignUp() {
     async(e: React.MouseEvent<HTMLButtonElement>) => {
       e.preventDefault();
       if (id && pw1 && pw2 && pw1 === pw2) {
-        const data: authType = {
+        const signUpData: authType = {
           name: id,
           password: pw1,
         };
-        signUp.mutateAsync(data, {
+        signupMutate.mutateAsync(signUpData, {
           onSuccess: () => {
             B1ndToast.showSuccess("회원가입 성공!");
             queryClient.invalidateQueries("auth/signup");

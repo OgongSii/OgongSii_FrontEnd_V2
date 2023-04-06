@@ -4,14 +4,14 @@ import * as S from "./style";
 import { useSetRecoilState } from "recoil";
 import { ISMODAL } from "../../../store/Modal/modalAtom";
 import { useTokenCheck } from "../../../hooks/Auth/Token/useTokenCheck";
-import { useWriteToggle } from "../../../hooks/Write/useWriteToggle";
+import { useRecordPostToggle } from "../../../hooks/Modal/useRecordPostToggle";
 import Post from "./Post";
 import Record from "./Record";
 
 export default function Modal() {
   const isModal = useSetRecoilState<boolean>(ISMODAL);
   const { isAuthority } = useTokenCheck();
-  const { isPost, onPostToggle } = useWriteToggle();
+  const { isPost, onPostToggle } = useRecordPostToggle();
 
   useEffect(() => {
     document.body.style.cssText = `overflow: hidden`;

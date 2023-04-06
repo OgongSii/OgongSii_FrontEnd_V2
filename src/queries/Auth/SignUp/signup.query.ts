@@ -3,8 +3,8 @@ import signupRepository from "../../../repositories/Auth/SignUp/signup.repositor
 import { authType } from "../../../types/Auth/login.type";
 
 export const usePostSignUpMutation = () => {
-  const mutataion = useMutation("auth/signup", (data: authType) =>
-    signupRepository.onSignUp(data)
+  const mutation = useMutation("auth/signup", (signUpData: authType) =>
+    signupRepository.onSignUp(signUpData)
   );
-  return mutataion;
+  return mutation;
 };

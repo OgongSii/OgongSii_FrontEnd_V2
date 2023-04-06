@@ -1,6 +1,6 @@
 import { useCallback, useState } from "react";
 
-export function useWriteToggle(){
+export function useRecordPostToggle(){
     const [isPost,SetIsPost] = useState<boolean>(false);
 
     const onPostToggle = useCallback((isPost:boolean)=>{

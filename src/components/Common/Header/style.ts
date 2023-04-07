@@ -23,6 +23,8 @@ export const Logo = styled.div`
   cursor: pointer;
   background-color: #ffffff;
 
+  font-size: 18px;
+
   -webkit-user-select:none;
   -moz-user-select:none;
   -ms-user-select:none;

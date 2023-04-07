@@ -79,14 +79,16 @@ export const GoPage = styled.div<{ isLogIn: boolean }>`
   box-shadow: 0 0 10px #9199f5;
   &:hover {
     background-color: #467cf5;
+    box-shadow: 0 0 10px #9199f5;
   }
 
   ${({ isLogIn }) =>
     isLogIn
       ? css`
-          border: 3px solid black;
+          border: 2px solid black;
           background-color: #eaedfa;
           color: black;
+          box-shadow: 0 0 10px rgba(0,0,0,0.4);
         `
       : ""}
 `;

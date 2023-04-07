@@ -1,12 +1,25 @@
 import * as S from "./style";
-import { Profile } from "../Common/SideBar/style";
-import Token from "../../lib/Token/Token";
+import { Profile } from "../SideBar/style";
+import Token from "../../../lib/Token/Token";
 import MyList from "./MyList";
-import { HomeWrap } from "../Common/Home/style";
+import { HomeWrap } from "../Home/style";
 import UserFunc from "./UserFunc";
-import { ListContainer } from "../Common/Home/HomeList/style";
+import AuthHOC from "../Auth/AuthHoc";
+import { useTokenCheck } from "../../../hooks/Auth/Token/useTokenCheck";
+import { useEffect } from "react";
+import { B1ndToast } from "@b1nd/b1nd-toastify";
+import { useNavigate } from "react-router-dom";
 
-export default function User() {
+function User() {
+  const { isAuthority } = useTokenCheck();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!isAuthority) {
+      B1ndToast.showInfo("로그인/회원가입 해주세요!");
+      navigate("/");
+    }
+  }, [isAuthority]);
 
   return (
     <div>
@@ -22,7 +35,7 @@ export default function User() {
           <S.UserAbleContainer>
             <S.LeftLayout>
               <UserFunc />
-              <div style={{ margin:"0 auto"}}>
+              <div style={{ margin: "0 auto" }}>
                 <S.MyStudyRecord>내 공부시간</S.MyStudyRecord>
               </div>
             </S.LeftLayout>
@@ -42,3 +55,5 @@ export default function User() {
     </div>
   );
 }
+
+export default AuthHOC(User, { isAuthenticated: true });

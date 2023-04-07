@@ -42,12 +42,12 @@ export function useRecord() {
         };
         recordMutate.mutateAsync(recordData, {
           onSuccess: () => {
-            B1ndToast.showSuccess("기록이 등록이 되었습니다!");
+            B1ndToast.showSuccess("공부한 시간을 등록하였습니다!");
             queryClient.invalidateQueries("record");
             isModal(false);
           },
           onError: () => {
-            B1ndToast.showError("기록을 등록하지 못했습니다!");
+            B1ndToast.showError("공부한 시간을 등록하지 못했습니다!");
           },
           onSettled: () => {
             SetNumberHourText("");

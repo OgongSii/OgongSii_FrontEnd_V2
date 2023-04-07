@@ -10,14 +10,14 @@ interface Props {
 }
 
 export default function PageTemplate({ children }: Props) {
-  const isModal = useRecoilValue<boolean>(ISMODAL);
+  const onModal = useRecoilValue<boolean>(ISMODAL);
 
   return (
     <>
       <GlobalStyle />
       <Header />
       {children}
-      {isModal && <Modal />}
+      {onModal && <Modal />}
     </>
   );
 }

@@ -7,6 +7,7 @@ import { useTokenCheck } from "../../../hooks/Auth/Token/useTokenCheck";
 import { useRecordPostToggle } from "../../../hooks/Modal/useRecordPostToggle";
 import Post from "./Post";
 import Record from "./Record";
+import ModalPortal from "./Portal";
 
 export default function Modal() {
   const isModal = useSetRecoilState<boolean>(ISMODAL);
@@ -18,31 +19,35 @@ export default function Modal() {
   }, []);
 
   return (
-    <S.PostContainer onClick={() => isModal(false)}>
-      <ListContainer onClick={(e) => e.stopPropagation()} isModal={true}>
-        {isAuthority ? (
-          <div>
-            <S.PostRecordoComponentContainer>
-              <S.PostComponent
-                onClick={() => onPostToggle(false)}
-                isRecord={isPost}
-              >
-                게시글 작성하기
-              </S.PostComponent>
-              <S.RecordComponent
-                onClick={() => onPostToggle(true)}
-                isRecord={isPost}
-              >
-                공부시간 기록하기
-              </S.RecordComponent>
-            </S.PostRecordoComponentContainer>
+    <ModalPortal>
+      <S.PostContainer onClick={() => isModal(false)}>
+        <ListContainer onClick={(e) => e.stopPropagation()} isModal={true}>
+          {isAuthority ? (
+            <div>
+              <S.PostRecordoComponentContainer>
+                <S.PostComponent
+                  onClick={() => onPostToggle(false)}
+                  isRecord={isPost}
+                >
+                  게시글 작성하기
+                </S.PostComponent>
+                <S.RecordComponent
+                  onClick={() => onPostToggle(true)}
+                  isRecord={isPost}
+                >
+                  공부시간 기록하기
+                </S.RecordComponent>
+              </S.PostRecordoComponentContainer>
 
-            <S.WriteWrap>{isPost ? <Record /> : <Post />}</S.WriteWrap>
-          </div>
-        ) : (
-          <S.NoneLoginSignModal>로그인/회원가입 해주세요!</S.NoneLoginSignModal>
-        )}
-      </ListContainer>
-    </S.PostContainer>
+              <S.WriteWrap>{isPost ? <Record /> : <Post />}</S.WriteWrap>
+            </div>
+          ) : (
+            <S.NoneLoginSignModal>
+              로그인/회원가입 해주세요!
+            </S.NoneLoginSignModal>
+          )}
+        </ListContainer>
+      </S.PostContainer>
+    </ModalPortal>
   );
 }

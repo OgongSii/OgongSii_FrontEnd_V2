@@ -1,4 +1,3 @@
-
 class Token {
   public getToken(key: string): string | null {
     return localStorage.getItem(key);

@@ -1,16 +1,17 @@
 import * as S from "./style";
 import HomeList from "./HomeList";
 import SiderBar from "../SideBar";
+import AuthHOC from "../Auth/AuthHoc";
 
-export default function Home() {
+function Home() {
   return (
     <div>
       <SiderBar />
       <S.HomeContainer>
         <S.HomeWrap>
-          {Array.from({ length: 5 }).map((idx:any) => (
+          {Array.from({ length: 5 }).map((idx: any) => (
             <div key={idx}>
-            <HomeList />
+              <HomeList />
             </div>
           ))}
         </S.HomeWrap>
@@ -18,3 +19,5 @@ export default function Home() {
     </div>
   );
 }
+
+export default AuthHOC(Home, { isAuthenticated: true });

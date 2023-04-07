@@ -1,8 +1,8 @@
 import { useSetRecoilState } from "recoil";
 import * as S from "./style";
-import { ISMODAL } from "../../../store/Modal/modalAtom";
-import { PAGE_ITEM } from "../../../constants/Page/page.constants";
-import { useGoPage } from "../../../hooks/SideBar/useGoPage";
+import { ISMODAL } from "../../../../store/Modal/modalAtom";
+import { PAGE_ITEM } from "../../../../constants/Page/page.constants";
+import { useGoPage } from "../../../../hooks/SideBar/useGoPage";
 
 export default function UserFunc() {
   const isModal = useSetRecoilState<boolean>(ISMODAL);

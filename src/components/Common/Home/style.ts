@@ -9,16 +9,16 @@ export const HomeContainer = styled.div`
 
   background-color: rgba(0, 0, 0, 0.1);
 
-  display:flex;
+  display: flex;
   flex-direction: column;
-  
+
   align-items: center;
   justify-content: center;
 `;
 
 export const HomeWrap = styled.div`
-  width: 45vw;
-  height: 80vh;
+  width: 600px;
+  height: 90%;
 
   display: flex;
   flex-wrap: wrap;
@@ -26,7 +26,7 @@ export const HomeWrap = styled.div`
   align-items: center;
   justify-content: center;
 
-  background-color:rgba(0, 0, 0, 0.0);
+  background-color: rgba(0, 0, 0, 0);
   margin-top: 30px;
 
   overflow-y: scroll;

@@ -6,7 +6,9 @@ export default function NotFound() {
   const navigage = useNavigate();
   useEffect(() => {
     B1ndToast.showInfo("Page Not Found!");
+    localStorage.removeItem("page");
     navigage("/");
-  }, []);
+  }, [navigage]);
+
   return <></>;
 }

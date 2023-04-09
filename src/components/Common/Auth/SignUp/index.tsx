@@ -5,7 +5,7 @@ import { Btn, Input } from "../Login/style";
 
 export default function SignUp() {
   const navigate = useNavigate();
-  const { onSignUpChange, id, pw1, pw2, onSignUpClick } = useSignUp();
+  const { onSignUpChange, email, pw1, pw2, onSignUpClick } = useSignUp();
 
   return (
     <S.SignUpContainer>
@@ -18,19 +18,18 @@ export default function SignUp() {
 
         <S.SignupInputContainer>
           <Input
-            type="text"
-            value={id}
-            placeholder="아이디"
-            name="id"
+            type="email"
+            value={email}
+            placeholder="gildong@gmail.com"
+            name="email"
             autoComplete="new-password"
             onChange={onSignUpChange}
-            maxLength={20}
           />
 
           <Input
             type="password"
             value={pw1}
-            placeholder="비밀번호"
+            placeholder="비밀번호 (특수문자포함(@$!%*?&) 8~20자)"
             name="pw1"
             autoComplete="new-password"
             onChange={onSignUpChange}

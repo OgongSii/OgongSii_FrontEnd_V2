@@ -2,9 +2,13 @@ import { useImg } from "../../../../hooks/Post/useImg";
 import { Btn } from "../../Auth/Login/style";
 import * as S from "./style";
 
-export default function Post() {
+interface Props {
+  isModal: boolean;
+}
+
+export default function Post({ isModal }: Props) {
   const { saveImgFile, imgList, imgRef, SetImgList } = useImg();
-  
+
   return (
     <S.PostContainer>
       <S.Introduce isRecord={false}>공부 관련 게시글을 작성주세요!</S.Introduce>
@@ -35,7 +39,9 @@ export default function Post() {
           style={{ display: "none" }}
         />
       </S.ImgUploadContainer>
-      <Btn isModal={true} isPost={true}>작성하기</Btn>
+      <Btn isModal={true} isPost={true}>
+        작성하기
+      </Btn>
     </S.PostContainer>
   );
 }

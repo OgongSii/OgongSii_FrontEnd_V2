@@ -4,7 +4,8 @@ import { useLogin } from "../../../../hooks/Auth/Login/useLogin";
 
 export default function Login() {
   const navigate = useNavigate();
-  const { id, pw, onLoginChange, onLoginClick } = useLogin();
+  const { email, pw, onLoginChange, onLoginClick } = useLogin();
+
   return (
     <S.LoginContaienr>
       <S.LoginForm>
@@ -17,12 +18,10 @@ export default function Login() {
         <S.LoginInputContainer>
           <S.Input
             type="text"
-            value={id}
-            placeholder="아이디"
-            name="id"
-            autoComplete="off"
+            value={email}
+            placeholder="이메일"
+            name="email"
             onChange={onLoginChange}
-            maxLength={20}
           />
 
           <S.Input
@@ -30,7 +29,6 @@ export default function Login() {
             value={pw}
             placeholder="비밀번호"
             name="pw"
-            autoComplete="off"
             onChange={onLoginChange}
             maxLength={20}
           />

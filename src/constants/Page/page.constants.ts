@@ -1,6 +1,7 @@
+
 interface Type {
   name: string;
-  link?: string;
+  link ?: string;
 }
 
 export const PAGE_ITEM: Type[] = [

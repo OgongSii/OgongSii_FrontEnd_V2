@@ -68,27 +68,25 @@ export const MyId = styled.div`
 export const GoPage = styled.div<{ isLogIn: boolean }>`
   width: 200px;
   height: 50px;
-  color: #ffffff;
 
   line-height: 50px;
   margin-bottom: 20px;
 
-  background-color: #4172fa;
-  border-radius: 1rem;
   cursor: pointer;
-  box-shadow: 0 0 10px #9199f5;
-  &:hover {
-    background-color: #467cf5;
-    box-shadow: 0 0 10px #9199f5;
-  }
-
   ${({ isLogIn }) =>
     isLogIn
       ? css`
-          border: 2px solid black;
-          background-color: #eaedfa;
-          color: black;
-          box-shadow: 0 0 10px rgba(0,0,0,0.4);
+          color: #ffffff;
+          background-color: #4172fa;
+          border-radius: 1rem;
+          box-shadow: 0 0 10px #9199f5;
+          &:hover {
+            background-color: #467cf5;
+          }
         `
-      : ""}
+      : css`
+          &:hover {
+            color: #4172fa;
+          }
+        `}
 `;

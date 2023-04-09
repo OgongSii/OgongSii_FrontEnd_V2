@@ -2,7 +2,6 @@ import * as S from "./style";
 import { Profile } from "../SideBar/style";
 import Token from "../../../lib/Token/Token";
 import MyList from "./MyList";
-import { HomeWrap } from "../Home/style";
 import UserFunc from "./UserFunc";
 import AuthHOC from "../Auth/AuthHoc";
 import { useTokenCheck } from "../../../hooks/Auth/Token/useTokenCheck";
@@ -41,13 +40,11 @@ function User() {
             </S.LeftLayout>
 
             <S.RightLayout>
-              <HomeWrap>
+              <S.MyListsWrap>
                 {Array.from({ length: 2 }).map((idx: any) => (
-                  <div key={idx}>
-                    <MyList />
-                  </div>
+                  <MyList key={idx} />
                 ))}
-              </HomeWrap>
+              </S.MyListsWrap>
             </S.RightLayout>
           </S.UserAbleContainer>
         </S.UserInfoContainer>

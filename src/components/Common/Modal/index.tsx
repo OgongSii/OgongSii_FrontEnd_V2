@@ -1,16 +1,17 @@
 import { useEffect } from "react";
 import { ListContainer } from "../Home/HomeList/style";
 import * as S from "./style";
-import { useSetRecoilState } from "recoil";
+import { useRecoilState } from "recoil";
 import { ISMODAL } from "../../../store/Modal/modalAtom";
 import { useTokenCheck } from "../../../hooks/Auth/Token/useTokenCheck";
 import { useRecordPostToggle } from "../../../hooks/Modal/useRecordPostToggle";
 import Post from "./Post";
 import Record from "./Record";
 import ModalPortal from "./Portal";
+import AuthHOC from "../Auth/AuthHoc";
 
-export default function Modal() {
-  const isModal = useSetRecoilState<boolean>(ISMODAL);
+function Modal() {
+  const [isModal, SetIsModal] = useRecoilState<boolean>(ISMODAL);
   const { isAuthority } = useTokenCheck();
   const { isPost, onPostToggle } = useRecordPostToggle();
 
@@ -20,7 +21,7 @@ export default function Modal() {
 
   return (
     <ModalPortal>
-      <S.PostContainer onClick={() => isModal(false)}>
+      <S.PostContainer onClick={() => SetIsModal(false)}>
         <ListContainer onClick={(e) => e.stopPropagation()} isModal={true}>
           {isAuthority ? (
             <div>
@@ -39,7 +40,9 @@ export default function Modal() {
                 </S.RecordComponent>
               </S.PostRecordoComponentContainer>
 
-              <S.WriteWrap>{isPost ? <Record /> : <Post />}</S.WriteWrap>
+              <S.WriteWrap>
+                {isPost ? <Record /> : <Post isModal={isModal} />}
+              </S.WriteWrap>
             </div>
           ) : (
             <S.NoneLoginSignModal>
@@ -51,3 +54,4 @@ export default function Modal() {
     </ModalPortal>
   );
 }
+export default AuthHOC(Modal, { isAuthenticated: true });

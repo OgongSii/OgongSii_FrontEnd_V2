@@ -25,25 +25,27 @@ export const UserName = styled.div`
 
 export const UserAbleContainer = styled.div`
   width: 100%;
-  height: calc(calc(100vh - 82px) - 30vh);
+  height: calc(70vh - 82px);
 
   position: absolute;
   bottom: 0;
-  background-color: #EBEEF2;
+  background-color: #ebeef2;
+
+  display: flex;
 `;
 
 export const LeftLayout = styled.div`
   width: 45%;
-  height: calc(calc(100vh - 82px) - 30vh);
+  height: calc(70vh - 82px);
 
-  display:flex;
+  display: flex;
   flex-direction: column;
 `;
 
 export const MyStudyRecord = styled.div`
-  width: 40vw;
-  height: 45vh;
-  background-color:#FFFFFF;
+  width: 500px;
+  height: 400px;
+  background-color: #ffffff;
 
   border-radius: 1rem;
   margin-top: 20px;
@@ -92,22 +94,18 @@ export const MyStudyRecord = styled.div`
 
 export const RightLayout = styled.div`
   width: 55%;
-  height: calc(calc(100vh - 82px) - 30vh);
-
-  position: absolute;
-  right: 0;
-  top: 0;
+  height: calc(70vh - 82px);
 
   display: flex;
   flex-direction: column;
-  
+
   align-items: center;
   justify-content: center;
 `;
 
 export const MyListsWrap = styled.div`
-  width: 45vw;
-  height: 90vh;
+  width: 600px;
+  height: 90%;
 
   display: flex;
   flex-direction: row;
@@ -116,7 +114,6 @@ export const MyListsWrap = styled.div`
   align-items: center;
   justify-content: center;
 
-  background-color: rgba(0, 0, 0, 0);
   margin-top: 45px;
 
   overflow-y: scroll;

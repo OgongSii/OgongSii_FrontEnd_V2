@@ -3,8 +3,11 @@ import styled, { css } from "styled-components";
 export const ListContainer = styled.div<{ isModal: boolean }>`
   width: 540px;
   min-height: 518px;
+
   margin-top: 20px;
   border-radius: 1rem;
+  background-color: #ffffff;
+
   ${({ isModal }) =>
     isModal
       ? css`
@@ -13,11 +16,12 @@ export const ListContainer = styled.div<{ isModal: boolean }>`
       : css`
           box-shadow: 0 0 10px #9199f5;
         `}
-  background-color: #FFFFFF;
+
   animation: fadein 1s;
   -moz-animation: fadein 1s;
   -webkit-animation: fadein 1s;
   -o-animation: fadein 1s;
+
   @keyframes fadein {
     from {
       opacity: 0;

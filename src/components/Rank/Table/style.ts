@@ -17,7 +17,7 @@ export const Property = styled.div<{ isProperty: boolean }>`
         `
       : css`
           background-color: #FFFFFF;
-          margin-top: 10px;
+          margin-top: 12px;
         `}
 
   div {
@@ -27,17 +27,6 @@ export const Property = styled.div<{ isProperty: boolean }>`
     text-align: center;
     line-height: 50px;
   }
-`;
-
-export const UserStudyedTime = styled.div`
-  width: 50%;
-  height: 50px;
-
-  text-align: center;
-  line-height: 50px;
-
-  position: absolute;
-  right: 0;
 `;
 
 export const TupleContainer = styled.div`

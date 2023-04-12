@@ -26,8 +26,8 @@ export function useLogin() {
     []
   );
 
-  const onLoginClick = useCallback(
-    async (e: React.MouseEvent<HTMLButtonElement>) => {
+  const onLoginSubmit = useCallback(
+    async (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
       if (email && pw && EmailRegex.test(email) && PasswordRegex.test(pw)) {
         const loginData: authType = {
@@ -54,8 +54,8 @@ export function useLogin() {
       }
       else B1ndToast.showInfo("제대로 입력해주세요!");
     },
-    [email, pw, navigate]
+    [email, pw, navigate, loginMutate]
   );
 
-  return { onLoginChange, email, pw, onLoginClick };
+  return { onLoginChange, email, pw, onLoginSubmit };
 }

@@ -5,11 +5,11 @@ import { Btn, Input } from "../Login/style";
 
 export default function SignUp() {
   const navigate = useNavigate();
-  const { onSignUpChange, email, pw1, pw2, onSignUpClick } = useSignUp();
+  const { onSignUpChange, email, pw1, pw2, onSignUpSubmit } = useSignUp();
 
   return (
     <S.SignUpContainer>
-      <S.SignupForm>
+      <S.SignupForm onSubmit={onSignUpSubmit}>
         <S.SignupTitle>
           <div>
             <S.TitlePoint>O</S.TitlePoint>gong<S.TitlePoint>S</S.TitlePoint>ii
@@ -47,7 +47,7 @@ export default function SignUp() {
           />
 
           <div style={{ marginTop: "30px" }}>
-            <Btn onClick={onSignUpClick} isModal={false} isPost={false}>
+            <Btn type="submit" isModal={false} isPost={false}>
               회원가입
             </Btn>
           </div>

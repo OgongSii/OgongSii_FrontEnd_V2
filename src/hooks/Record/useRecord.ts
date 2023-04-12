@@ -46,7 +46,7 @@ export function useRecord() {
             queryClient.invalidateQueries("record");
             isModal(false);
           },
-          onError: () => {
+          onError: (e: any) => {
             B1ndToast.showError("공부한 시간을 등록하지 못했습니다!");
           },
           onSettled: () => {
@@ -56,7 +56,7 @@ export function useRecord() {
         });
       } else B1ndToast.showInfo("제대로 입력해주세요!");
     },
-    [isModal, numberHourText, numberMinuteText]
+    [isModal, numberHourText, numberMinuteText, recordMutate]
   );
 
   return { onNumberChange, numberHourText, numberMinuteText, onRecordSubmit };

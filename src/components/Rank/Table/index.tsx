@@ -1,3 +1,4 @@
+import { RankContainer } from "../style";
 import Today from "./Today";
 import Total from "./Total";
 import * as S from "./style";
@@ -11,7 +12,7 @@ export default function Table({ isTotal }: Props) {
     <>
       <S.Property isProperty={true}>
         <div>유저네임</div>
-        <S.UserStudyedTime>공부한 시간</S.UserStudyedTime>
+        <div>공부한 시간</div>
       </S.Property>
 
       <S.TupleContainer>{isTotal ? <Total /> : <Today />}</S.TupleContainer>

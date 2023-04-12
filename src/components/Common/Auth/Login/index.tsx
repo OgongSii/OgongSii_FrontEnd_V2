@@ -4,11 +4,11 @@ import { useLogin } from "../../../../hooks/Auth/Login/useLogin";
 
 export default function Login() {
   const navigate = useNavigate();
-  const { email, pw, onLoginChange, onLoginClick } = useLogin();
+  const { email, pw, onLoginChange, onLoginSubmit } = useLogin();
 
   return (
     <S.LoginContaienr>
-      <S.LoginForm>
+      <S.LoginForm onSubmit={onLoginSubmit}>
         <S.LoginTitle>
           <div>
             <S.TitlePoint>O</S.TitlePoint>gong<S.TitlePoint>S</S.TitlePoint>ii
@@ -34,7 +34,7 @@ export default function Login() {
           />
 
           <div style={{ marginTop: "30px" }}>
-            <S.Btn onClick={onLoginClick} isModal={false} isPost={false}>
+            <S.Btn type="submit" isModal={false} isPost={false}>
               로그인
             </S.Btn>
           </div>

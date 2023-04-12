@@ -29,8 +29,8 @@ export const ChooseContainer = styled.div`
 
 export const TotalRank = styled.div<{ isTotal: boolean }>`
   width: 50%;
-  height: 70px;
-  line-height: 70px;
+  height: 50px;
+  line-height: 50px;
   text-align: center;
   border-radius: 1rem 0 0 1rem;
   ${({ isTotal }) =>
@@ -59,8 +59,8 @@ export const TodayRank = styled.div<{ isTotal: boolean }>`
   right: 0;
 
   width: 50%;
-  height: 70px;
-  line-height: 70px;
+  height: 50px;
+  line-height: 50px;
 
   text-align: center;
   border-radius: 0 1rem 1rem 0;

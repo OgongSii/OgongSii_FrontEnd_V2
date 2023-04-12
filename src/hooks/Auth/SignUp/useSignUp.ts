@@ -25,8 +25,8 @@ export function useSignUp() {
     []
   );
 
-  const onSignUpClick = useCallback(
-    async (e: React.MouseEvent<HTMLButtonElement>) => {
+  const onSignUpSubmit = useCallback(
+    async (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
       if (
         email &&
@@ -57,8 +57,8 @@ export function useSignUp() {
         } else B1ndToast.showError("비밀번호가 일치하지 않습니다!");
       } else B1ndToast.showInfo("제대로 입력해주세요!");
     },
-    [email, pw1, pw2]
+    [email, pw1, pw2, signupMutate]
   );
 
-  return { onSignUpChange, email, pw1, pw2, onSignUpClick };
+  return { onSignUpChange, email, pw1, pw2, onSignUpSubmit };
 }
